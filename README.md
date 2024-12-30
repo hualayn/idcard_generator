@@ -5,14 +5,16 @@
 > 本工具仅供研究使用，请勿用于违法用途，否则后果自负
 
 ## 使用
-1. git clone 项目到本地
 
-2. npm install 安装依赖
+```bash
+git clone https://github.com/hualayn/idcard_generator.git  # 克隆项目到本地
 
-3. 测试：命令行输入 node test
+npm install  # 安装依赖
 
-4. 生成图片： node gen <number> // 生成<number>张图片, 默认5张，可修改
+node test  # 测试生成图片（在当前文件夹下，生成一个output.png图片）
 
+node gen 3 # 生成 3 张图片（位于id_pics_out文件夹内）; 默认5张，可在`gen.js`修改
+```
 
 
 ## 其他

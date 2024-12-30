@@ -1,15 +1,15 @@
 import { surnames, givenNameChars, provinces, cities, streets } from './constants.js';
 
 
-function build_random_number(number){
+function random_number(number){
     return Math.floor(Math.random() * number)
 }
 
 function build_random_name(){
-    let surname = surnames[build_random_number(surnames.length)]
-    let givenname = givenNameChars[build_random_number(givenNameChars.length)]
+    let surname = surnames[random_number(surnames.length)]
+    let givenname = givenNameChars[random_number(givenNameChars.length)]
     if (Math.random() > 0.5){
-        let second_givenname = givenNameChars[build_random_number(givenNameChars.length)]
+        let second_givenname = givenNameChars[random_number(givenNameChars.length)]
         return surname + givenname + second_givenname
     }         
     return surname + givenname
@@ -22,36 +22,36 @@ function build_random_sex(){
 
 function build_random_year(){
     let start_year = 1950
-    let year_delta = Math.floor(Math.random() * 50)
+    let year_delta = random_number(50)
     return `${start_year + year_delta}`
 }
 
 function build_random_month(){
-    return `${Math.floor(Math.random()* 12) + 1}`
+    return `${random_number(12) + 1}`
 }
 
 function build_random_day(){
-    return `${Math.floor(Math.random()* 30) + 1}`
+    return `${random_number(30) + 1}`
 }
 
 function build_random_addr() {
     let address = "";
     // 随机选择省份
-    let randomProvinceIndex = Math.floor(Math.random() * provinces.length);
+    let randomProvinceIndex = random_number(provinces.length);
     let randomProvince = provinces[randomProvinceIndex];
     address += randomProvince;
     // 如果是直辖市，直接选择区
     if (["北京市", "天津市", "上海市"].includes(randomProvince)) {
-        let randomCityIndex = Math.floor(Math.random() * cities[randomProvince].length);
+        let randomCityIndex = random_number(cities[randomProvince].length);
         let randomCity = cities[randomProvince][randomCityIndex];
         address += randomCity;
     } 
     // 随机选择街道
-    let randomStreetIndex = Math.floor(Math.random() * streets.length);
+    let randomStreetIndex = random_number(streets.length);
     let randomStreet = streets[randomStreetIndex];
     address += randomStreet;
     // 随机生成门牌号（1-1000号）
-    let randomHouseNumber = Math.floor(Math.random() * 1000) + 1;
+    let randomHouseNumber = random_number(1000) + 1;
     address += randomHouseNumber + "号";
     return address;
 }

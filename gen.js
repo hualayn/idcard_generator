@@ -4,15 +4,21 @@ import composite from './index.js';
 import build_random_id_data from './core.js';
 
 const generate = async (pic_number) => {
+    let save_path = './id_pics_out'
+    if (!fs.existsSync(save_path)){
+        fs.mkdirSync(save_path)
+        console.log(`${save_path} 文件夹创建成功`)
+    }
+
     for (let i=0; i < pic_number; i++) {
         let config = build_random_id_data()
     
         await composite(config).then(e => {
-            fs.writeFile(`./id_pics_out/${i}.png`, e, err => {
+            fs.writeFile(`${save_path}/${i}.png`, e, err => {
                 if(err){
                     console.log('idcard-generator：测试失败 ' + e);
                 } else {
-                    console.log('idcard-generator：测试成功，文件已保存在：' + path.resolve(`./id_pics_out/${i}.png`));
+                    console.log('idcard-generator：测试成功，文件已保存在：' + path.resolve(`${save_path}/${i}.png`));
                 }
             })
         }).catch(err => {

@@ -1,6 +1,8 @@
-const sharp = require('sharp');
-const TextToSVG = require('text-to-svg');
-const path = require('path');
+import sharp from 'sharp';
+import TextToSVG from 'text-to-svg';
+import path from 'path';
+
+const __dirname = path.resolve()
 
 function getFontImg(_path, text, fontSize, letterSpacing) {
     return Buffer.from(
@@ -175,4 +177,4 @@ function composite(config) {
     });
 }
 
-module.exports = composite;
+export default composite

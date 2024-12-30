@@ -12,4 +12,4 @@ const cities = {
 };
 const streets = ["中山路", "解放路", "和平路", "新华路", "文化路", "科技路", "学府路", "花园路", "朝阳路", "南京路", "北京路", "东大街", "西大街", "南大街", "北大街", "民主路", "幸福路", "光明路", "复兴路", "建国路", "长城路", "黄河大道", "长江大街",]
 
-module.exports = { surnames, givenNameChars, provinces, cities, streets }
+export { surnames, givenNameChars, provinces, cities, streets }

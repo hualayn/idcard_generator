@@ -1,6 +1,10 @@
-const idcardGenerator = require('./index');
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs'
+import composite from './index.js';
+import path from 'path';
+
+const __dirname = path.resolve()
+
+
 const config = {
     name: '刘强东',
     sex: '女',
@@ -15,7 +19,7 @@ const config = {
     avatar: './images/avatar.png'
 }
 
-idcardGenerator(config).then(e => {
+composite(config).then(e => {
     fs.writeFile('./output.png', e, err => {
         if(err){
             console.log('idcard-generator：测试失败 ' + e);
